@@ -5,17 +5,12 @@
 
 
 // define variables below
-var question1 = [
-    // questions.textContent = 'What breed of cat is typically always female?';
-    // ansOpt1.textContent = 'Bengal';
-    // ansOpt2.textContent = 'Ragdoll';
-    // ansOpt3.textContent = 'Calico';
-    // ansOpt4.textContent = 'Sphynx';
+var question1 = ['What breed of cat is typically always female?', 'How many whiskers do cats usually have on each side of their face?', 'What is a group of cats called?'
 ]
 
-var ansArrays = [];
+var ansArrays = [ ['Bengal','Ragdol','Calico','Sphynx'],['6', '12', '15','32'],['Clowder', "Meowdur", "Prowl", "Bagel"]];
 
-var correstAns = [];
+var correstAns = ['Calico', "12", "Clowder"];
 
 var startQuiz = document.getElementById('advButton');
 var timeLeft = 300;
@@ -31,10 +26,24 @@ var ansOpt4 = document.getElementById('option4');
 
 
 // create functions below
+// activate quiz questions and timer
 function beginQuiz() {
+    // countdown();
+    // questionDisplay();
+}
+
+function countdown(){
 
 }
-// 
+
+function questionDisplay() {
+    
+}
+// create timer countdown function
+
+
+// create question display
+
 
 // add event listener to begin quiz/timer
 
