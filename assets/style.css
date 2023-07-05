@@ -1,0 +1,25 @@
+.title {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.quiz-content {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
