@@ -32,16 +32,26 @@ var ansOpt2 = document.getElementById('option2');
 var ansOpt3 = document.getElementById('option3');
 var ansOpt4 = document.getElementById('option4');
 var currentQuestion = 0
+var score = 0
+
 
 
 // create functions below
 // activate quiz questions and timer
 function beginQuiz() {
-    // countdown();
+    countdown();
     questionDisplay();
 }
 // create timer countdown function and set up interval
 function countdown(){
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timerCount.textContent = "Time Left: " + timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            endQuiz();
+        }
+    }, 1000);
 //add interval for each second subtract time by one second and update timer count text content
 //if statement for if timer reaches zero, if so end quiz endQuiz()
 }
@@ -61,14 +71,14 @@ function questionDisplay() {
 
 // triggered by a guess
 function checkAnswer(event) {
-
+   
     //pull text content, compare to correct answer
     if (event.target.textContent === questionsArray[currentQuestion].correstAns) {
-        // points++
+        score++
         questionDisplay();
     }else {
         questionDisplay();
-        //decrease timer by 1min
+        timeLeft--
     }
     // tell user if they got it right or wrong and proceed to next question
     //if wrong subtract time
