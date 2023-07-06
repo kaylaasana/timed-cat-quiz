@@ -5,31 +5,40 @@
 
 
 // define variables below
-var questionArray = ['What breed of cat is typically always female?', 'How many whiskers do cats usually have on each side of their face?', 'What is a group of cats called?'
-]
-
-var ansArrays = [ ['Bengal','Ragdol','Calico','Sphynx'],['6', '12', '15','32'],['Clowder', "Meowdur", "Prowl", "Bagel"]];
-//could also store index of correct answer
-var correstAns = ['Calico', "12", "Clowder"];
+var questionsArray = [{
+    question: 'What breed of cat is typically always female?',
+    answerArray: ['Bengal','Ragdoll','Calico','Sphynx'],
+    correctAns: 'Calico',
+},
+{
+    question: 'How many whiskers do cats usually have on each side of their face?',
+    answerArray: ['6', '12', '15','32'],
+    correstAns: '12',
+},
+{
+    question: 'What is a group of cats called?',
+    answerArray: ['Clowder', "Meowdur", "Prowl", "Bagel"],
+    correstAns: "Clowder",
+}]
 
 var startQuiz = document.getElementById('advButton');
 var timeLeft = 300;
 var timerCount = document.getElementById('timeLeft');
 timerCount.textContent = "Time Left: " + timeLeft;
 var scoreBoard = document.getElementById('highScoresList');
-var questDisplay = document.getElementById('questions');
+var questionText = document.getElementById('questions');
 var ansOpt1 = document.getElementById('option1');
 var ansOpt2 = document.getElementById('option2');
 var ansOpt3 = document.getElementById('option3');
 var ansOpt4 = document.getElementById('option4');
-
+var currentQuestion = 0
 
 
 // create functions below
 // activate quiz questions and timer
 function beginQuiz() {
     // countdown();
-    // questionDisplay();
+    questionDisplay();
 }
 // create timer countdown function and set up interval
 function countdown(){
@@ -38,13 +47,31 @@ function countdown(){
 }
 // create question display
 function questionDisplay() {
+    for (var i = 0; i < questionsArray.length; i++) {
+        questionText.textContent = questionsArray[i].question;
+        ansOpt1.textContent = questionsArray[i].answerArray[0];
+        ansOpt2.textContent = questionsArray[i].answerArray[1];
+        ansOpt3.textContent = questionsArray[i].answerArray[2];
+        ansOpt4.textContent = questionsArray[i].answerArray[3];
+    }
     // update the content of questions and answers
+    //overrite text for questions and answer elements
+    //know which one is correct answer
 }
 
 // triggered by a guess
-function checkAnswer() {
+function checkAnswer(event) {
+
+    //pull text content, compare to correct answer
+    if (event.target.textContent === questionsArray[currentQuestion].correstAns) {
+        // points++
+        questionDisplay();
+    }else {
+        questionDisplay();
+        //decrease timer by 1min
+    }
     // tell user if they got it right or wrong and proceed to next question
-    //next question function??
+    //if wrong subtract time
 }
 
 //add end quiz function
@@ -66,6 +93,7 @@ function saveName() {
 //add score to highScoresList, store under key
     //read saved scores, create variable and set equal to local storage
     //add new score into array
+    //include localstorage getItem, stringify, pars. check notes from class
     //save new update array/list of scores and overwrite current list
 // display content from highScoresList
 }
