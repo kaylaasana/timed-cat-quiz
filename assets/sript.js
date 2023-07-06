@@ -28,11 +28,11 @@ var timerCount = document.getElementById('timeLeft');
 timerCount.textContent = "Time Left: " + timeLeft;
 var scoreBoard = document.getElementById('highScoresList');
 var questionText = document.getElementById('questions');
-
 var ansOpt1 = document.getElementById('option1');
 var ansOpt2 = document.getElementById('option2');
 var ansOpt3 = document.getElementById('option3');
 var ansOpt4 = document.getElementById('option4');
+var saveButton = document.getElementById('save-button');
 var currentQuestion = 0
 var score = 0
 
@@ -53,6 +53,7 @@ function countdown(){
         //if statement for if timer reaches zero, if so end quiz endQuiz()
         if (timeLeft === 0) {
             clearInterval(timerInterval);
+            timerCount.textContent = "oops! all gone :("
             endQuiz();
         }
     }, 1000);
@@ -110,8 +111,13 @@ function saveName() {
 // display content from highScoresList
 }
 
+// function for start button
+function startButtonDisplay () {
+
+}
+//event listener to hide start button and show questions
 //add event listener for submit button 
-//variable.addEventListener('click', saveName);
+saveButton.addEventListener('click', saveName);
 // add event listener to begin quiz/timer
 startQuiz.addEventListener('click', beginQuiz);
 //event listeners for checking the correct answer
