@@ -27,6 +27,7 @@ var timerCount = document.getElementById('timeLeft');
 timerCount.textContent = "Time Left: " + timeLeft;
 var scoreBoard = document.getElementById('highScoresList');
 var questionText = document.getElementById('questions');
+
 var ansOpt1 = document.getElementById('option1');
 var ansOpt2 = document.getElementById('option2');
 var ansOpt3 = document.getElementById('option3');
@@ -45,43 +46,47 @@ function beginQuiz() {
 // create timer countdown function and set up interval
 function countdown(){
     var timerInterval = setInterval(function() {
+        //add interval for each second subtract time by one second and update timer count text content
         timeLeft--;
         timerCount.textContent = "Time Left: " + timeLeft;
+        //if statement for if timer reaches zero, if so end quiz endQuiz()
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             endQuiz();
         }
     }, 1000);
-//add interval for each second subtract time by one second and update timer count text content
-//if statement for if timer reaches zero, if so end quiz endQuiz()
+
+
 }
 // create question display
 function questionDisplay() {
+    // update the content of questions and answers
     for (var i = 0; i < questionsArray.length; i++) {
+         //overrite text for questions and answer elements
         questionText.textContent = questionsArray[i].question;
         ansOpt1.textContent = questionsArray[i].answerArray[0];
         ansOpt2.textContent = questionsArray[i].answerArray[1];
         ansOpt3.textContent = questionsArray[i].answerArray[2];
         ansOpt4.textContent = questionsArray[i].answerArray[3];
     }
-    // update the content of questions and answers
-    //overrite text for questions and answer elements
     //know which one is correct answer
+    checkAnswer();   
 }
 
 // triggered by a guess
 function checkAnswer(event) {
-   
     //pull text content, compare to correct answer
     if (event.target.textContent === questionsArray[currentQuestion].correstAns) {
         score++
         questionDisplay();
     }else {
+        //if wrong subtract time
+        // timeLeft-50;
         questionDisplay();
-        timeLeft--
+        
     }
     // tell user if they got it right or wrong and proceed to next question
-    //if wrong subtract time
+    
 }
 
 //add end quiz function
