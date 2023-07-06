@@ -23,6 +23,7 @@ var questionsArray = [{
 
 var startQuiz = document.getElementById('advButton');
 var timeLeft = 300;
+var timeDeduction = 100;
 var timerCount = document.getElementById('timeLeft');
 timerCount.textContent = "Time Left: " + timeLeft;
 var scoreBoard = document.getElementById('highScoresList');
@@ -61,29 +62,25 @@ function countdown(){
 // create question display
 function questionDisplay() {
     // update the content of questions and answers
-    for (var i = 0; i < questionsArray.length; i++) {
-         //overrite text for questions and answer elements
-        questionText.textContent = questionsArray[i].question;
-        ansOpt1.textContent = questionsArray[i].answerArray[0];
-        ansOpt2.textContent = questionsArray[i].answerArray[1];
-        ansOpt3.textContent = questionsArray[i].answerArray[2];
-        ansOpt4.textContent = questionsArray[i].answerArray[3];
-    }
-    //know which one is correct answer
-    checkAnswer();   
+     //overrite text for questions and answer elements
+        questionText.textContent = questionsArray[currentQuestion].question;
+        ansOpt1.textContent = questionsArray[currentQuestion].answerArray[0];
+        ansOpt2.textContent = questionsArray[currentQuestion].answerArray[1];
+        ansOpt3.textContent = questionsArray[currentQuestion].answerArray[2];
+        ansOpt4.textContent = questionsArray[currentQuestion].answerArray[3];
 }
 
 // triggered by a guess
 function checkAnswer(event) {
     //pull text content, compare to correct answer
+    currentQuestion++
     if (event.target.textContent === questionsArray[currentQuestion].correstAns) {
         score++
         questionDisplay();
     }else {
         //if wrong subtract time
-        // timeLeft-50;
+        timeLeft -= timeDeduction;
         questionDisplay();
-        
     }
     // tell user if they got it right or wrong and proceed to next question
     
@@ -117,3 +114,8 @@ function saveName() {
 //variable.addEventListener('click', saveName);
 // add event listener to begin quiz/timer
 startQuiz.addEventListener('click', beginQuiz);
+//event listeners for checking the correct answer
+ansOpt1.addEventListener('click', checkAnswer);
+ansOpt2.addEventListener('click', checkAnswer);
+ansOpt3.addEventListener('click', checkAnswer);
+ansOpt4.addEventListener('click', checkAnswer);
