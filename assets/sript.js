@@ -41,6 +41,7 @@ var score = 0
 // create functions below
 // activate quiz questions and timer
 function beginQuiz() {
+    startQuiz.style.display = 'none';
     countdown();
     questionDisplay();
 }
