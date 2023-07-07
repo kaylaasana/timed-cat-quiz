@@ -8,14 +8,14 @@ As a coding student I wanted to be able to practice using a timed quiz applicati
 ## Table of Contents
 
 - [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+- [Screenshots](#screenshots)
+- [Link](#link)
 
 ## Usage
 
 To use this quiz, first click the Begin button, then select from the answers presented on the screen based on the question given. If an answer selected is incorrect, 100 seconds will be deducted from the timer. Once the timer reaches zero or all questions have been answered, the quiz will end and the user will be presented with an opportunity to record their score on the high scores list and try again. 
 
-## Screenshot
+## Screenshots
 
 Example of the main page:
 
@@ -39,3 +39,6 @@ Example of the high scores list (top left corner):
 
 ## Link
 
+To access the deployed the web page, click the link below:
+
+https://kaylaasana.github.io/timed-cat-quiz/
