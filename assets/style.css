@@ -15,7 +15,7 @@
     justify-content: space-between;
 }
 
-.quiz-content {
+.quiz-container {
     margin: 0px;
     border: 0px;
     padding: 0px;
@@ -30,6 +30,6 @@
     flex-direction: column;
 }
 
-#save-score {
+.hidden {
     display: none;
 }

@@ -6,18 +6,22 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>The Cat Quiz</title>
 </head>
-<body>
+<body class="body">
     <!-- header - title -->
     <header class="header">
         <h1 class="title">The Cat Quiz</h1>
     </header>
-    <!-- nav? timer and button for viewing high scores-->
+    <!-- nav -- timer and button for viewing high scores-->
     <nav class="nav-bar">
-        <button id="highScoresList"><h2>View High Scores</h2></button>
+        <button id="highScoresList"><h2>View High Scores</h2>
+            <ol id="hall-of-fame">
+
+            </ol>
+        </button>
         <h2 id="timeLeft"></h2>
     </nav>
-    <!-- main content, start button, questions and multiple choice answers, display score, input name and show leaderboard at the end -->
-    <section class="quiz-content">  
+    <!-- main content, start button, questions and multiple choice answers, display score, and input name-->
+    <section class="quiz-container hidden" id="quiz-content">  
         <h3 id="questions"></h3> 
         <div id="ansContainer" class="ans-container">
             <button id="option1"></button>
@@ -28,16 +32,14 @@
     </section>
     <button id="advButton">Begin</button>  
     <!-- add form for save name and score data with input feild with submit button-->
-    <form id="save-score">
-        <p id="win-or-loss"></p>
+    <form id="save-score" class="hidden">
         <p id="time-remaining"></p>
         <p id="score"></p>
-        <p><input></p>
-        <button id="save-button">Save Score</button>
+        <p id="inputNameText"></p>
+        <input id="save-name">
+        <br>
+        <button id="save-button" >Save Score</button>
     </form>
-    <!-- optional footer? -->
-    
-
     <script src="./assets/sript.js"></script>
 </body>
 </html>
